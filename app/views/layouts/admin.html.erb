@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobListing</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <%= render "common/navbar" %>
+      <%= render "common/flashes" %>
+      <div class="row">
+        <div class="col-md-12">
+         <% if current_user.admin? %>
+         <%= link_to(" Admin", admin_jobs_path, :class => "glyphicon glyphicon-pencil")%>
+         <br><br>
+         <%= link_to(" User", jobs_path, :class => "glyphicon glyphicon-user") %>
+         <% end %>
+        </div>
+
+      </div>
+      <%= yield %>
+    </div>
+
+
+
+    <%= render "common/footer" %>
+  </body>
+</html>
