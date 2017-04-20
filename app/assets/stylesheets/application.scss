@@ -89,22 +89,24 @@ header:before {
     bottom: 0;
     left: 0;
     z-index: -1;
-}
 
-
-
-header:after {
+ }
+ header:after {
   background: #F9FCFF;
   content: "";
   height: 40rem;
   left: -5%;
-  position: absolute;
+  
     right: -5%;
     top: 100%;
   transform-origin: 0 0;
   transform: rotateZ(-4deg);
   z-index: 0;
 }
+
+
+
+
 
 .header-title, .header-subtitle {
   color: #fff;
