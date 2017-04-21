@@ -53,6 +53,18 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
 
+
+  def developer
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "developer").lower_salary.paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "developer").upper_salary.paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "developer").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
   def search
    if @query_string.present?
      search_result = Job.published.ransack(@search_criteria).result(:distinct => true)

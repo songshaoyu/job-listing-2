@@ -3,7 +3,7 @@
    <img src="https://cssanimation.rocks/levelup/public/images/rocky-dashed.svg" class="rocky-dashed">
    <h1 class="header-title">One Step</h1>
    <h3 class="header-subtitle">One More Chance</h3>
-   <p class="header-button"><%= link_to("Get started now",jobs_path(@job), :class => "btn") %></p>
+   <p class="header-button"><%= link_to("Get started now",jobs_path(@job), :class => "btn btn-default") %></p>
  </section>
 </header>
 
@@ -134,5 +134,90 @@
 
 
     <p class="section__intro">他们在onestep都快速找到了心仪的工作.你也来试试吧</p>
-  <%= link_to("Get started now",jobs_path(@jobs), :class => "btn") %>
+  <p class="section_intro text-center"><%= link_to("Get started now",jobs_path(@jobs), :class => "btn btn-default") %></p>
+
   </div>
+  <div class="box">
+  <section id="categories" class="text-center">
+   <div class="container">
+     <h1>你可能感兴趣的</h1>
+
+     <hr />
+     <div class="row">
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("computer .png") %>
+           <div class="caption">
+             <h4><%= link_to("工程师", developer_jobs_path(:order=> "by_developer")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("customer-service.png") %>
+           <div class="caption">
+             <h4><%= link_to("客服", customer_service_jobs_path(:order => "by_customer-service")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("drawing.png") %>
+           <div class="caption">
+             <h4><%= link_to("设计", design_jobs_path(:order => "by_design")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("rating.png") %>
+           <div class="caption">
+             <h4><%= link_to("销售", sales_marketing_jobs_path(:order => "by_sales-marketing")) %></h4>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+           <%= image_tag("lawyer.png") %>
+           <div class="caption">
+             <h4><%= link_to("法律", legal_jobs_path(:order => "by_legal")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("typewriter.png") %>
+           <div class="caption">
+             <h4><%= link_to("文案策划", non_profit_jobs_path(:order => "by_non-profit")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("teamwork.png") %>
+           <div class="caption">
+             <h4><%= link_to("Human Resources", human_resource_jobs_path(:order => "by_human-resource")) %></h4>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">
+           <%= image_tag("hunting.png") %>
+           <div class="caption">
+             <h4><%= link_to("运营", design_jobs_path(:order => "by_design")) %></h4>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+ </section>
+ </div>
