@@ -13,7 +13,7 @@
 <div class="container-fluid jobs-show-page">
   <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 <div class="pull-right">
-<%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default" ) %>
+<%= link_to("增加职务", new_admin_job_path, :class => "btn btn-default" ) %>
 </div>
 
 <br><br>
@@ -22,9 +22,12 @@
   <thead>
     <tr>
       <td>职缺</td>
+      <td>职务种类</td>
       <td>收到的履历数量</td>
       <td>薪资下限</td>
       <td>薪资上限</td>
+      <td>招聘公司</td>
+      <td>工作地点</td>
       <td>管理选项</td>
       <td>刊登时间</td>
     </tr>
@@ -35,9 +38,12 @@
     <%= render_job_status(job) %>
     <%= link_to(job.title, admin_job_path(job)) %>
   </td>
+  <td><%= job.city %></td>
   <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
   <td><%= job.wage_lower_bound %></td>
   <td><%= job.wage_upper_bound %></td>
+  <td><%= job.company %></td>
+  <td><span class="<%= render_job_category(job) %>"> <%= job.category %></td>
   <td>
       <%= link_to edit_admin_job_path(job), class: "btn btn-xs btn-info" do %><i class="fa fa-pencil"></i><% end %>
       <%= link_to admin_job_path(job), :method => :delete, :class => "btn btn-xs  btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash-o"></i><% end %>

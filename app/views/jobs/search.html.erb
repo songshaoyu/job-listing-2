@@ -12,7 +12,7 @@
         Opps! No any results matched, please try again.
       </div>
     <% else %>
-      <h3>Total find <%= @jobs.count %> jobs</h3>
+      <h4>Total find <%= @jobs.count %> jobs</h4>
       <div class="divider"></div>
       <%= render :partial => "jobs_iterm", :collection => @jobs, :as => :job %>
       <div class="text-center">

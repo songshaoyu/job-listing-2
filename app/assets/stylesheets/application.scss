@@ -31,14 +31,14 @@ $green: #419b72;
  }
 
  .navbar-default .navbar-brand {
-     color: #EF6C00;
+     color: #fff;
      padding: 10px 15px;
      line-height: 30px;
  }
 
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
-     color: #FF6F00;
+     color: #fff;
      background-color: transparent;
  }
 
@@ -48,14 +48,14 @@ $green: #419b72;
 
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
-     color: #FF6F00;
+     color: #fff;
      background-color: transparent;
  }
 
  .navbar-default .navbar-nav > .active > a,
  .navbar-default .navbar-nav > .active > a:hover,
  .navbar-default .navbar-nav > .active > a:focus {
-     color: #FF6F00;
+     color: #fff;
      background-color: #FFE0B2;
  }
 
@@ -82,10 +82,10 @@ $green: #419b72;
 
 header:before {
   background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
-              url(https://cssanimation.rocks/levelup/public/images/background.jpg) no-repeat bottom;
+              url(https://images.unsplash.com/photo-1422480415834-d7d30118ea06?ixlib=rb-0.3.5&q=100&fm=jpg&crop=entropy&cs=tinysrgb&dl=breather-7175.jpg&s=db576e7c93e31b7225ad0c8334643) no-repeat bottom;
   background-size: cover;
   content: "";
-  position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -94,15 +94,15 @@ header:before {
 
  }
  header:after {
-  background: #F9FCFF;
+  background: #eee;
   content: "";
   height: 40rem;
   left: -5%;
 
     right: -5%;
     top: 100%;
-  transform-origin: 0 0;
-  transform: rotateZ(-4deg);
+    transform-origin: 0 0;
+    transform: rotateZ(-4deg);
   z-index: 0;
 }
 
@@ -111,7 +111,7 @@ header:before {
 
 
 .header-title, .header-subtitle {
-  color: #fff;
+  color: #eee;
 }
 
 .header-subtitle {
@@ -439,4 +439,16 @@ ul li{
 
 .login-help{
   font-size: 12px;
+}
+
+
+////----serach-box------
+.fina {
+
+    background: url(//www.lgstatic.com/www/static/index/modules/sidebar/img/newLabel_a3b2897.png) 0 0 no-repeat;
+    position: absolute;
+    width: 37px;
+    height: 17px;
+    left: 60px;
+    top: 17px;
 }
