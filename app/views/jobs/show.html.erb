@@ -1,10 +1,23 @@
-<h3><%= @job.title %></h3>
-<div class="pull-right">
-  <%= link_to("Edit", edit_job_path(@job), class: "btn btn-primary") %>
+<div class="jobs-show-page">
+  <h3><%= @job.title %></h3>
+  <div class="pull-right">
+    <% if current_user && current_user.is_member_of?(@job) %>
+          <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>
+            <sapn class="fa fa-star"></sapn> 已收藏
+          <% end %>
+        <% else %>
+          <%= link_to add_job_path(@job), method: :post, class: "btn btn-lg btn-default" do %>
+            <sapn class="fa fa-star-o"></sapn> 收藏
+          <% end %>
+        <% end %>
+    <%= link_to("编辑", edit_job_path(@job), class: "btn btn-primary") %>
+  </div>
+  <hr>
+  <%= simple_format(@job.description) %>
+  <br><br>
+
 </div>
-<hr>
-<%= simple_format(@job.description) %>
-<br><br>
+
 <div class="container text-center" style="font-size:30px;margin_top:46px;">
   <%= link_to("提交履历",new_job_resume_path(@job)) %>
 </div>

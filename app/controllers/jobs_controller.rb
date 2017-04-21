@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add, :remove]
 
   def index
     @jobs = case params[:order]
@@ -18,6 +18,10 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+
+    @category = @job.category
+    @sames = Job.where(:is_hidden => false, :category => @job.category).where.not(:id => @job.id ).limit(5).order("RANDOM()")
+
     if @job.is_hidden
       flash[:warning] = "再换个试试吧。 "
       redirect_to root_path
@@ -91,6 +95,26 @@ class JobsController < ApplicationController
   def render_highlight_content(job,query_string)
     excerpt_cont = excerpt(job.title, query_string, radius: 500)
     highlight(excerpt_cont, query_string)
+  end
+
+  def add
+    @job = Job.find(params[:id])
+
+    if !current_user.is_member_of?(@job)
+      current_user.add_collection!(@job)
+    end
+
+    redirect_to job_path(@job)
+  end
+
+  def remove
+    @job = Job.find(params[:id])
+
+    if current_user.is_member_of?(@job)
+      current_user.remove_collection!(@job)
+    end
+
+    redirect_to job_path(@job)
   end
 
   private

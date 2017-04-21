@@ -14,8 +14,13 @@ class Job < ApplicationRecord
     self.save
   end
 
+  
+
   scope :recent, -> {order('created_at DESC')}
   scope :published, -> {where(is_hidden: false)}
 
   has_many :resumes
+  belongs_to :user
+  has_many :collections, dependent: :destroy
+  has_many :members, through: :collections, source: :user
 end

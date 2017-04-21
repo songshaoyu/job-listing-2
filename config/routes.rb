@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       get :human_resource
       get :design
     end
+
     resources :resumes
+    member do
+        post :add
+        post :remove
+    end
   end
   root 'welcome#index'
 
