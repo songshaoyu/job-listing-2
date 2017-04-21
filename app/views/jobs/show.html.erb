@@ -2,11 +2,11 @@
   <h3><%= @job.title %></h3>
   <div class="pull-right">
     <% if current_user && current_user.is_member_of?(@job) %>
-          <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>
+          <%= link_to remove_job_path(@job), method: :post, class: "btn  btn-success" do %>
             <sapn class="fa fa-star"></sapn> 已收藏
           <% end %>
         <% else %>
-          <%= link_to add_job_path(@job), method: :post, class: "btn btn-lg btn-default" do %>
+          <%= link_to add_job_path(@job), method: :post, class: "btn  btn-default" do %>
             <sapn class="fa fa-star-o"></sapn> 收藏
           <% end %>
         <% end %>

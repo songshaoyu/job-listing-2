@@ -58,6 +58,26 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def add
+    @job = Job.find(params[:id])
+
+    if !current_user.is_member_of?(@job)
+      current_user.add_collection!(@job)
+    end
+
+    redirect_to :back
+  end
+
+  def remove
+    @job = Job.find(params[:id])
+
+    if current_user.is_member_of?(@job)
+      current_user.remove_collection!(@job)
+    end
+
+    redirect_to :back
+  end
+
 
   def developer
     @jobs = case params[:order]
@@ -98,25 +118,7 @@ class JobsController < ApplicationController
     highlight(excerpt_cont, query_string)
   end
 
-  def add
-    @job = Job.find(params[:id])
 
-    if !current_user.is_member_of?(@job)
-      current_user.add_collection!(@job)
-    end
-
-    redirect_to job_path(@job)
-  end
-
-  def remove
-    @job = Job.find(params[:id])
-
-    if current_user.is_member_of?(@job)
-      current_user.remove_collection!(@job)
-    end
-
-    redirect_to job_path(@job)
-  end
 
   private
 
