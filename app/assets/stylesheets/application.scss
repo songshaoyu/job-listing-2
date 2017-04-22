@@ -31,19 +31,23 @@ $green: #419b72;
  }
 
  .navbar-default .navbar-brand {
-     color: #fff;
-     padding: 10px 15px;
-     line-height: 30px;
+     color: #d9d9d9;
+     position: absolute;
+     transform: translate(-50%, -50%);
+     left: 90px;
  }
+
+
 
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
      color: #fff;
      background-color: transparent;
+     text-decoration: none;
  }
 
- .navbar-default .navbar-nav > li > a {
-     color: #EF6C00;
+  .navbar-default .navbar-nav > li > a {
+     color: #d9d9d9;
  }
 
  .navbar-default .navbar-nav > li > a:hover,
@@ -143,7 +147,7 @@ body {
 
   font-family: "Merriweather", serif;
   font-size: 16px;
-  margin-bottom: 150px;//和 footer 撑开距离
+      position: relative;
 }
 html {
   font-size: 16px;
@@ -445,10 +449,66 @@ ul li{
 ////----serach-box------
 .fina {
 
-    background: url(//www.lgstatic.com/www/static/index/modules/sidebar/img/newLabel_a3b2897.png) 0 0 no-repeat;
+    background: url('user_setup.png') 0 0 no-repeat;
     position: absolute;
     width: 37px;
     height: 17px;
     left: 60px;
     top: 17px;
+}
+
+////-----user----
+.user_setup{
+    margin-bottom: 0px;
+    height: 750px;
+    background: image_url("user_setup.jpg") no-repeat scroll top center/ cover;
+}
+
+.user_setup_content{
+    background: #d9d9d9;
+    margin-top: 135px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 1px 3px 5px #666;
+    border: 1px solid #d9d9d9;
+    border-radius: 20px;
+
+    opacity:0.95;
+    filter:alpha(opacity=60);
+
+    h2{
+      text-align: center;
+    }
+
+    .psw{
+      float: right;
+      margin-top: -33px;
+      position: relative;
+    }
+
+  
+
+    .form-inputs{
+      margin-top: 25px;
+    }
+
+    .form-actions{
+      text-align: center;
+      margin-top: 35px;
+      margin-bottom: 25px;
+
+      .button{
+        color: #fff;
+        background-color: #4A6BB5;
+        border-color: #4A6BB5;
+        font-size: 16px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+      .button:hover{
+          background-color: #4A99B5;
+          border-color: #4A99B5;
+          color: #fff;
+      }
+    }
 }
