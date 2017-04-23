@@ -144,12 +144,13 @@ a {
 }
 
 body {
-
+  overflow-x: hidden;
   font-family: "Merriweather", serif;
   font-size: 16px;
-      position: relative;
+  margin-bottom: 100px;
 }
 html {
+
   font-size: 16px;
   position: relative;
   min-height: 100%;
@@ -254,6 +255,7 @@ html {
 }
 .box__content:hover .box__more {
   color: #ff3545;
+  text-decoration: none;
 }
 .box__content:hover .box__more i {
   padding-left: 4px;
@@ -270,7 +272,7 @@ html {
 
 
 .btn:hover {
-  background: #ff3545;
+  
 }
 
 
@@ -450,7 +452,7 @@ ul li{
 .fina {
 
     background: url('user_setup.png') 0 0 no-repeat;
-    position: absolute;
+    position: relative;
     width: 37px;
     height: 17px;
     left: 60px;
@@ -486,7 +488,7 @@ ul li{
       position: relative;
     }
 
-  
+
 
     .form-inputs{
       margin-top: 25px;

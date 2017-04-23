@@ -14,7 +14,7 @@ $green: #419b72;
   .btn-default:hover, .btn-default:focus, .btn-default:default, .btn-default.active, .open>.dropdown-toggle.btn-default {
     color: darken($green, 5%);
     background: #fff;
-    border: 1px solid #000;
+    
   }
 }
 
@@ -31,6 +31,7 @@ $green: #419b72;
 /* Job-show-page */
 
 .job-show-page {
+  width: 500px;
   margin-top: 75px;
   margin-bottom: 20px;
   .job-content {
@@ -77,8 +78,8 @@ $green: #419b72;
   height: 37px;
   position: relative;
   margin-top: 15px;
-  display: inline;
-  }
+  display: table;
+}
 
   .search-bar-input {
     text-align: center;
