@@ -1,4 +1,29 @@
-<div class="jobs-show-page container-fluid">
+<div class="container">
+    <div class="row all_image">
+        <div class="col-xs-6 col-md-3 all_image_css">
+            <%= link_to image_tag("developer.jpg", class: "img-rounded img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
+            <h4 class="text-center"><%= link_to("开发", developer_jobs_path(:order => "category")) %></h4>
+        </div>
+        <div class="col-xs-6 col-md-3 all_image_css">
+            <%= link_to image_tag("painter.jpg", class: "img-rounded img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
+            <h4 class="text-center"><%= link_to("设计", developer_jobs_path(:order => "category")) %></h4>
+        </div>
+        <div class="col-xs-6 col-md-3 all_image_css">
+            <%= link_to image_tag("ux.jpg", class: "img-rounded img-responsive img-center"), image_path(healthcare_jobs_path(:order => "category")) %>
+            <h4 class="text-center"><%= link_to("产品", healthcare_jobs_path(:order => "category")) %></h4>
+        </div>
+        <div class="col-xs-6 col-md-3 all_image_css">
+            <%= link_to image_tag("all_jobs.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path) %>
+            <h4 class="text-center"><%= link_to("全部", jobs_path) %></h4>
+        </div>
+    </div>
+  </div>
+  <hr>
+
+
+
+
+<div class="container">
 <ul class="nav navbar-nav">
   <li>
     <div class="form-group form-inline search-bar">
@@ -14,7 +39,7 @@
 
 
 
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="group col-xs-12">
 <div class="pull-right clearfix dropdown">
   <span type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
  class="glyphicon glyphicon-option-vertical"></span>
@@ -25,23 +50,31 @@
   </ul>
 </div>
 <br><br>
+<div class="table-responsive row container">
 <table class="table table-striped">
   <tr>
-    <td>职缺</td>
-    <td>种类</td>
-    <td>薪资下限</td>
-    <td>薪资上限</td>
-    <td>招聘公司</td>
-    <td>刊登时间</td>
-    <td>应征</td>
-  </tr>
+    <thead>
+      <tr>
+        <td>职缺</td>
+        <td>职务类型</td>
+        <td>应征人数</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>招聘公司</td>
+        <td>工作地点</td>
+        <td>刊登时间</td>
+        <td>应征</td>
+      </tr>
+    </thead>
   <% @jobs.each do |job| %>
   <tr>
   <td><%= link_to(job.title, job_path(job)) %></td>
-  <td></td>
+  <td><%= job.category %></td>
+  <td><%= job.resumes.count %></td>
   <td><%= job.wage_lower_bound %></td>
   <td><%= job.wage_upper_bound %></td>
    <td><%= job.company %></td>
+   <td><%= job.city %></td>
   <td><%= job.created_at %></td>
   <td><%= link_to("应征", new_job_resume_path(job), :class => "btn btn-success btn-sm")%></td>
 
@@ -50,5 +83,6 @@
     <% end %>
 </table>
 
+</div>
 </div>
 </div>

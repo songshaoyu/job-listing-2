@@ -7,15 +7,15 @@
 
 <!--=== 职位类型 ===-->
   <% if @job.category? %>
-    <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
+    <%= f.input :category, :label => "职位类型", :collection => ["开发", "设计", "产品", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
   <% else %>
-    <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], input_html: { class: 'category' } %>
+    <%= f.input :category, :label => "职位类型", :collection => [ "开发", "设计", "产品", "其他","其他"], input_html: { class: 'category' } %>
   <% end %>
   <!--=== 工作地点 ===-->
-  <% if @job.location? %>
-    <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外"], :checked => @job.location, input_html: { class: 'location' } %>
+  <% if @job.city? %>
+    <%= f.input :city, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州"], :checked => @job.location, input_html: { class: 'city' } %>
   <% else %>
-    <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外"], input_html: { class: 'location' } %>
+    <%= f.input :city, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州"], input_html: { class: 'city' } %>
   <% end %>
   <%= f.input :wage_lower_bound, :label => "薪资下限" %>
   <%= f.input :wage_upper_bound, :label => "薪资上限" %>
