@@ -15,12 +15,14 @@
       <%= render "common/flashes" %>
       <div class="row">
         <div class="col-md-12" id="admin">
+          <div class="btn-group">
          <% if current_user.admin? %>
-         <%= link_to(" Admin", admin_jobs_path, :class => "glyphicon glyphicon-pencil")%>
-         <br><br>
-         <%= link_to(" User", jobs_path, :class => "glyphicon glyphicon-user") %>
+         <button><%= link_to(" Admin", admin_jobs_path, :class => "glyphicon glyphicon-pencil")%></button>
+
+         <button><%= link_to(" User", jobs_path, :class => "glyphicon glyphicon-user") %></button>
          <% end %>
         </div>
+      </div>
 
       </div>
       <%= yield %>

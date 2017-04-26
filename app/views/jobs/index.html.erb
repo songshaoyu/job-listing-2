@@ -5,12 +5,12 @@
             <h4 class="text-center"><%= link_to("开发", developer_jobs_path(:order => "category")) %></h4>
         </div>
         <div class="col-xs-6 col-md-3 all_image_css">
-            <%= link_to image_tag("painter.jpg", class: "img-rounded img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
-            <h4 class="text-center"><%= link_to("设计", developer_jobs_path(:order => "category")) %></h4>
+            <%= link_to image_tag("painter.jpg", class: "img-rounded img-responsive img-center"), image_path(design_jobs_path(:order => "category")) %>
+            <h4 class="text-center"><%= link_to("设计", design_jobs_path(:order => "category")) %></h4>
         </div>
         <div class="col-xs-6 col-md-3 all_image_css">
-            <%= link_to image_tag("ux.jpg", class: "img-rounded img-responsive img-center"), image_path(healthcare_jobs_path(:order => "category")) %>
-            <h4 class="text-center"><%= link_to("产品", healthcare_jobs_path(:order => "category")) %></h4>
+            <%= link_to image_tag("ux.jpg", class: "img-rounded img-responsive img-center"), image_path(product_jobs_path(:order => "category")) %>
+            <h4 class="text-center"><%= link_to("产品", product_jobs_path(:order => "category")) %></h4>
         </div>
         <div class="col-xs-6 col-md-3 all_image_css">
             <%= link_to image_tag("all_jobs.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path) %>

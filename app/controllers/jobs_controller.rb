@@ -5,6 +5,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = case params[:order]
+
     when 'by_lower_bound'
       Job.published.order('wage_lower_bound').order('created_at DESC')
     when 'by_upper_bound'
@@ -83,12 +84,34 @@ class JobsController < ApplicationController
   def developer
     @jobs = case params[:order]
             when 'by_lower_bound'
-              Job.published.where(:category => "developer").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "开发").order('wage_lower_bound').paginate(:page => params[:page], :per_page => 5)
             when 'by_upper_bound'
-              Job.published.where(:category => "developer").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "开发").order('wage_upper_bound').paginate(:page => params[:page], :per_page => 5)
             else
-              Job.published.where(:category => "developer").recent.paginate(:page => params[:page], :per_page => 5)
+              Job.published.where(:category => "开发").recent.paginate(:page => params[:page], :per_page => 5)
             end
+  end
+
+  def product
+    @jobs = case params[:order]
+            when 'by_lower_bound'
+              Job.published.where(:category => "产品").order('wage_lower_bound').paginate(:page => params[:page], :per_page => 5)
+            when 'by_upper_bound'
+              Job.published.where(:category => "产品").order('wage_upper_bound').paginate(:page => params[:page], :per_page => 5)
+            else
+              Job.published.where(:category => "产品").recent.paginate(:page => params[:page], :per_page => 5)
+            end
+  end
+
+  def design
+    @jobs = case params[:order]
+    when 'by_lower_bound'
+      Job.published.where(:caregory => "设计").order('wage_lower_bound').paginate(:page => params[:page], :per_page => 5)
+    when 'by_upper_bound'
+      Job.published.where(:category => "设计").order('wage_upper_bound').paginate(:page => params[:page], :per_page => 5)
+    else
+      Job.published.where(:category => "设计").recent.paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   def search
