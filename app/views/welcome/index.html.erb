@@ -89,19 +89,19 @@
 
     <div class="col-xs-6 col-md-3 all_image_css text-center">
 
-        <%= link_to image_tag("developer.jpg", class: "img-circle img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
+        <%= link_to image_tag("developer.jpg", class: "img img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
         <h4 class="text-center"><%= link_to("开发", developer_jobs_path(:order => "category")) %></h4>
     </div>
     <div class="col-xs-6 col-md-3 all_image_css">
-        <%= link_to image_tag("painter.jpg", class: "img-circle img-responsive img-center"), image_path(design_jobs_path(:order => "category")) %>
+        <%= link_to image_tag("painter.jpg", class: "img img-responsive img-center"), image_path(design_jobs_path(:order => "category")) %>
         <h4 class="text-center"><%= link_to("设计", design_jobs_path(:order => "category")) %></h4>
     </div>
     <div class="col-xs-6 col-md-3 all_image_css">
-        <%= link_to image_tag("ux.jpg", class: "img-circle img-responsive img-center"), image_path(product_jobs_path(:order => "category")) %>
+        <%= link_to image_tag("ux.jpg", class: "img img-responsive img-center"), image_path(product_jobs_path(:order => "category")) %>
         <h4 class="text-center"><%= link_to("产品", product_jobs_path(:order => "category")) %></h4>
     </div>
     <div class="col-xs-6 col-md-3 all_image_css">
-        <%= link_to image_tag("all_jobs.jpg", class: "img-circle img-responsive img-center"), image_path(jobs_path) %>
+        <%= link_to image_tag("all_jobs.jpg", class: "img img-responsive img-center"), image_path(jobs_path) %>
         <h4 class="text-center"><%= link_to("全部", jobs_path) %></h4>
         <span class="label label-meetup label-competition-new">new</span>
     </div>
