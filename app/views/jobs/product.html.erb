@@ -23,7 +23,7 @@
       <span class="label label-meetup label-competition-new">new</span>
     </div>
   </div>
-
+  <hr>
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
@@ -43,39 +43,49 @@
         </ul>
       </div>
       <br><br>
-      <div class="table-responsive row container">
-        <table class="table table-striped">
-          <tr>
-            <thead>
-              <tr>
-                <td>职缺</td>
-                <td>职务类型</td>
-                <td>应征人数</td>
-                <td>薪资下限</td>
-                <td>薪资上限</td>
-                <td>招聘公司</td>
-                <td>工作地点</td>
-                <td>刊登时间</td>
-                <td>应征</td>
-              </tr>
-            </thead>
-            <% @jobs.each do |job| %>
-            <tr>
-              <td><%= link_to(job.title, job_path(job)) %></td>
-              <td><%= job.category %></td>
-              <td><%= job.resumes.count %></td>
-              <td><%= job.wage_lower_bound %></td>
-              <td><%= job.wage_upper_bound %></td>
-              <td><%= job.company %></td>
-              <td><%= job.city %></td>
-              <td><%= job.created_at %></td>
-              <td><%= link_to("应征", new_job_resume_path(job), :class => "btn btn-success btn-sm")%></td>
+      <p>
+        Jobs:</p><br>
+          <% @jobs.each do |job| %>
 
-            </tr>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2 text-center">
+             <img src="https://ww3.sinaimg.cn/large/006tKfTcgy1ff7djwot30j303k03k0sj.jpg" class="img-circle" height="65" width="65" alt="Avatar">
 
-            <% end %>
-          </table>
+          </div>
+          <div class="col-sm-4">
+            <h4><%= link_to(job.title, job_path(job)) %></h4>
+            <small><%= job.created_at %></small>
 
+          </div>
+          <div class="col-sm-6">
+              <span><i class="fa fa-home"  aria-hidden="true"></i>  <%= job.company %></span>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <p>薪资: <%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %> </p>
+            </div>
+            <div class="col-md-6">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <span><i class="fa fa-location-arrow" aria-hidden="true"></i>  <%= job.city %></span>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+              <span><i class="fa fa-envelope" aria-hidden="true"></i>  <%= job.contact_email %></span>
+            </div>
+          </div>
         </div>
       </div>
+      <br>
+      <% end %>
     </div>
+  </div>

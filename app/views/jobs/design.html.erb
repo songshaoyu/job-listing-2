@@ -1,158 +1,132 @@
-<div class="container">
-    <div class="row all_image">
-        <div class="col-xs-6 col-md-3 image all_image_css">
-            <%= link_to image_tag("developer.jpg", class: "img-rounded img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
-            <h4 class="text-center"><%= link_to("开发", developer_jobs_path(:order => "category")) %></h4>
-            <div class="overlay dp">
-              <div class="text">
-                开发
-              </div>
-            </div>
+<!-- <div class="container">
+  <div class="row all_image">
+    <div class="col-xs-6 col-md-3 image all_image_css">
+      <%= link_to image_tag("developer.jpg", class: "img-rounded img-responsive img-center"), image_path(developer_jobs_path(:order => "category")) %>
+      <h4 class="text-center"><%= link_to("开发", developer_jobs_path(:order => "category")) %></h4>
+      <div class="overlay dp">
+        <div class="text">
+          开发
         </div>
-        <div class="col-xs-6 col-md-3 all_image_css">
-            <%= link_to image_tag("painter.jpg", class: "img-rounded img-responsive img-center"), image_path(design_jobs_path(:order => "category")) %>
-            <h4 class="text-center"><%= link_to("设计", design_jobs_path(:order => "category")) %></h4>
-            <div class="overlay ds">
-              <div class="text">
-                设计
-              </div>
-            </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3 all_image_css">
+      <%= link_to image_tag("painter.jpg", class: "img-rounded img-responsive img-center"), image_path(design_jobs_path(:order => "category")) %>
+      <h4 class="text-center"><%= link_to("设计", design_jobs_path(:order => "category")) %></h4>
+      <div class="overlay ds">
+        <div class="text">
+          设计
         </div>
-        <div class="col-xs-6 col-md-3 all_image_css">
-            <%= link_to image_tag("ux.jpg", class: "img-rounded img-responsive img-center"), image_path(product_jobs_path(:order => "category")) %>
-            <h4 class="text-center"><%= link_to("产品", product_jobs_path(:order => "category")) %></h4>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-3 all_image_css">
+      <%= link_to image_tag("ux.jpg", class: "img-rounded img-responsive img-center"), image_path(product_jobs_path(:order => "category")) %>
+      <h4 class="text-center"><%= link_to("产品", product_jobs_path(:order => "category")) %></h4>
+    </div>
+    <div class="col-xs-6 col-md-3 all_image_css">
+      <%= link_to image_tag("all_jobs.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path) %>
+      <h4 class="text-center"><%= link_to("全部", jobs_path) %></h4>
+      <span class="label label-meetup label-competition-new">new</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li>
+        <div class="form-group form-inline search-bar">
+          <%= render :partial => 'jobs/search_bar' %>
         </div>
-        <div class="col-xs-6 col-md-3 all_image_css">
-            <%= link_to image_tag("all_jobs.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path) %>
-            <h4 class="text-center"><%= link_to("全部", jobs_path) %></h4>
-            <span class="label label-meetup label-competition-new">new</span>
+      </li>
+    </ul>
+
+    <div class="group col-xs-12">
+      <div class="pull-right clearfix dropdown">
+        <span type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-option-vertical"></span>
+        <ul class="dropdown-menu">
+          <li><%= link_to("按照薪资下限排序", jobs_path(:order => 'by_lower_bound')) %></li>
+          <li><%= link_to("按照薪资上限排序", jobs_path(:order => 'by_upper_bound')) %></li>
+          <li><%= link_to("按照发表时间排序",jobs_path) %></li>
+        </ul>
+      </div>
+      <br><br>
+      <div class="table-responsive row container">
+        <table class="table table-striped">
+          <tr>
+            <thead>
+              <tr>
+                <td>职缺</td>
+                <td>职务类型</td>
+                <td>应征人数</td>
+                <td>薪资下限</td>
+                <td>薪资上限</td>
+                <td>招聘公司</td>
+                <td>工作地点</td>
+                <td>刊登时间</td>
+                <td>应征</td>
+              </tr>
+            </thead>
+            <% @jobs.each do |job| %>
+            <tr>
+              <td><%= link_to(job.title, job_path(job)) %></td>
+              <td><%= job.category %></td>
+              <td><%= job.resumes.count %></td>
+              <td><%= job.wage_lower_bound %></td>
+              <td><%= job.wage_upper_bound %></td>
+              <td><%= job.company %></td>
+              <td><%= job.city %></td>
+              <td><%= job.created_at %></td>
+              <td><%= link_to("应征", new_job_resume_path(job), :class => "btn btn-success btn-sm")%></td>
+
+            </tr>
+
+            <% end %>
+          </table>
+
         </div>
+      </div>
+    </div> -->
+    <p>
+      Jobs:</p><br>
+        <% @jobs.each do |job| %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2 text-center">
+           <img src="https://ww4.sinaimg.cn/large/006tKfTcgy1ff7ddx5rxwj30280283y9.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+
+        </div>
+        <div class="col-sm-4">
+          <h4><%= link_to(job.title, job_path(job)) %></h4>
+          <small><%= job.created_at %></small>
+
+        </div>
+        <div class="col-sm-6">
+            <span><i class="fa fa-home"  aria-hidden="true"></i>  <%= job.company %></span>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>薪资: <%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %> </p>
+          </div>
+          <div class="col-md-6">
+            <p></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <span><i class="fa fa-location-arrow" aria-hidden="true"></i>  <%= job.city %></span>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <span><i class="fa fa-clock-o" aria-hidden="true"></i>  <%= time_ago_in_words(job.created_at) %> ago</span>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <span><i class="fa fa-envelope" aria-hidden="true"></i>  <%= job.contact_email %></span>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- <div class="row">
-  <div class="column">
-    <img src="developer.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
-  </div>
-  <div class="column">
-    <img src="design.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
-  </div>
-  <div class="column">
-    <img src="ux.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
-  </div>
-  <div class="column">
-    <img src="all_image.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
-  </div>
-</div>
-
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-
-    <div class="mySlides">
-      <div class="numbertext">1 / 4</div>
-        <img src="img_nature_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">2 / 4</div>
-        <img src="img_fjords_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">3 / 4</div>
-        <img src="img_mountains_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">4 / 4</div>
-        <img src="img_lights_wide.jpg" style="width:100%">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Trolltunga">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
-    </div>
-  </div>
-</div> -->
-
-<div class="container">
-<ul class="nav navbar-nav">
-  <li>
-    <div class="form-group form-inline search-bar">
-      <%= render :partial => 'jobs/search_bar' %>
-    </div>
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-  <div class="group col-xs-12">
-<div class="pull-right clearfix dropdown">
-  <span type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
- class="glyphicon glyphicon-option-vertical"></span>
-  <ul class="dropdown-menu">
-    <li><%= link_to("按照薪资下限排序", jobs_path(:order => 'by_lower_bound')) %></li>
-    <li><%= link_to("按照薪资上限排序", jobs_path(:order => 'by_upper_bound')) %></li>
-    <li><%= link_to("按照发表时间排序",jobs_path) %></li>
-  </ul>
-</div>
-<br><br>
-<div class="table-responsive row container">
-<table class="table table-striped">
-  <tr>
-    <thead>
-      <tr>
-        <td>职缺</td>
-        <td>职务类型</td>
-        <td>应征人数</td>
-        <td>薪资下限</td>
-        <td>薪资上限</td>
-        <td>招聘公司</td>
-        <td>工作地点</td>
-        <td>刊登时间</td>
-        <td>应征</td>
-      </tr>
-    </thead>
-  <% @jobs.each do |job| %>
-  <tr>
-  <td><%= link_to(job.title, job_path(job)) %></td>
-  <td><%= job.category %></td>
-  <td><%= job.resumes.count %></td>
-  <td><%= job.wage_lower_bound %></td>
-  <td><%= job.wage_upper_bound %></td>
-   <td><%= job.company %></td>
-   <td><%= job.city %></td>
-  <td><%= job.created_at %></td>
-  <td><%= link_to("应征", new_job_resume_path(job), :class => "btn btn-success btn-sm")%></td>
-
-</tr>
-
+    <br>
     <% end %>
-</table>
-
-</div>
-</div>
-</div>
