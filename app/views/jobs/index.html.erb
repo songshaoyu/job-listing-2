@@ -51,6 +51,13 @@
     <% if @jobs.length > 0 %>
     <% @jobs.each do |job| %>
     <div class="col-md-9 col-xs-12 job-box">
+      <%= link_to job_path(job) do %>
+        <% if job.image.present? %>
+          <%= image_tag(job.image.thumb.url, class: "thum") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thum") %>
+        <% end %>
+      <% end %>
       <!--=== 职位信息 ===-->
       <div class="col-md-6 col-xs-12 info">
         <div class="info-top">
@@ -64,8 +71,7 @@
           <%= job.wage_upper_bound %>
         </div>
         <div class="info-bot">
-          <span class="category">
-            <%= job.category %></span>
+        
         </div>
       </div>
 
