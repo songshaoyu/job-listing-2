@@ -1,14 +1,19 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header navbar-brand">
       <h3>
-        OneStep
+
+         <a  href="/" class="nav-h3"><img src='<%= image_url 'lover.png' %>' > 落后者的鸡血站</a>
       </h3>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left" style="margin-left: 100px;">
+      <ul class="nav navbar-nav navbar-left" style="margin-left: 180px;">
         <li><%= link_to("首页", root_path, class: "scroll") %></li>
-        <li><%= link_to("工作", jobs_path, class: "scroll") %></li>
+        <li><%= link_to("能量厂", jobs_path, class: "scroll") %>
+           <span class="label label-meetup label-competition-new">new</span>
+        </li>
+        <li><%= link_to("meetup",'#', class: "scroll") %>
+        <span class="label label-meetup label-competition-new">new</span> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>

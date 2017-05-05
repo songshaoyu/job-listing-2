@@ -20,11 +20,22 @@
 $green: #419b72;
 //---------Navbar---------
 .navbar-default {
-  background-color: #212121;
-  border-color: #212121;
+  background-color: #5f5f5f;
+  border-color: #fff;
   margin-bottom: 0;
   border-radius: 0;
 }
+ .navbar-brand > img {
+     display: inline-block; //图片和链接文字显示在同一行
+     margin-right: 10px; //图片和链接文字拉开一点距离
+     width: 32px; //定制图片宽度
+     height: 32px; //定制图片高度
+ }
+ .navbar-brand a {
+   margin-left: 60px;
+   color: #d8534f;
+   text-decoration: none;
+ }
 
 .navbar-default .navbar-brand {
   color: #d9d9d9;
@@ -33,20 +44,21 @@ $green: #419b72;
   left: 90px;
 }
 
+
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
-  color: #fff;
+  color: #d8534f;
   background-color: transparent;
   text-decoration: none;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #d9d9d9;
+  color: rgb(65,217,82);
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-  color: #fff;
+  color: #d8534f;
   background-color: transparent;
 }
 
@@ -78,7 +90,7 @@ header {
 }
 
 header:before {
-  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)), url("https://images.unsplash.com/photo-1422480415834-d7d30118ea06?ixlib=rb-0.3.5&q=100&fm=jpg&crop=entropy&cs=tinysrgb&dl=breather-7175.jpg&s=db576e7c93e31b7225ad0c8334643") no-repeat bottom;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)), url("https://ww3.sinaimg.cn/large/006tNbRwgy1ffaraju0qtj31hc0u0u0x.jpg") no-repeat bottom;
   background-size: cover;
   content: "";
   position: absolute;
@@ -90,7 +102,7 @@ header:before {
 }
 
 header:after {
-  background: #eee;
+
   content: "";
   height: 40rem;
   left: -5%;
@@ -100,10 +112,14 @@ header:after {
   transform: rotateZ(-4deg);
   z-index: 0;
 }
-
+.header-text{
+  background-color: rgba(255,79,0,0.5);
+  position: absolute;
+}
 .header-subtitle,
 .header-title {
-  color: #eee;
+
+  color: #FFEB3B;
 }
 
 .header-subtitle {
@@ -111,13 +127,9 @@ header:after {
   margin-bottom: 5rem;
 }
 
-.header-button {
-  transform: translateZ(.1px);
-  position: relative;
-  z-index: 10;
-  border-radius: 45px;
 
-}.carousel-indicators
+
+.carousel-indicators
 //----index----
 * {
   box-sizing: border-box;
@@ -266,6 +278,11 @@ html {
     -ms-flex: 0 0 30%;
     flex: 0 0 30%;
   }
+}
+.img-info {
+
+  width: 356px;
+  height: 356px;
 }
 
 .btn:hover {}
@@ -506,8 +523,8 @@ input[type=password]:hover {
 
 .label-meetup {
   position: absolute;
-  top: 10px;
-  left: 43px;
+  top: 4px;
+  left: 58px;
   padding: 3px 5px;
   -webkit-padding-before: 3px;
   -webkit-padding-end: 5px;
@@ -528,7 +545,7 @@ input[type=password]:hover {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.25em;
+
 }
 ///-----应征者说----
 .carousel-control.left,
@@ -781,8 +798,8 @@ input[type=password]:hover {
 }
 
 .all_image_css {
-  width: 304;
-  height: 304;
+  width: 404;
+  height: 404;
 }
 
 .img {
@@ -814,7 +831,7 @@ div{
 
   }
   .jobs-list{
-    
+
     border-collapse: collapse;
     margin-top: 12.5px;
     padding: 15px 1px 1px 1px;
