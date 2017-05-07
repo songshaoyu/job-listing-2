@@ -1,26 +1,26 @@
     <div class="jobs-show-page">
-    <h3>Add a job</h3>
+    <h3>添加问题</h3>
     <hr>
     <%= simple_form_for [:admin, @job] do |f| %>
-    <%= f.input :title, :label => false, placeholder: '请输入职位名称' %>
-    <%= f.input :description, :label => false, placeholder: '请输入职位描述' %>
+    <%= f.input :title, :label => false, placeholder: '请输入您的问题' %>
+    <%= f.input :description, :label => false, placeholder: '请详细描述' %>
 
 <!--=== 职位类型 ===-->
   <% if @job.category? %>
-    <%= f.input :category, :label => "职位类型", :collection => ["开发", "设计", "产品", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
+    <%= f.input :category, :label => "问题类型", :collection => ["基础", "魔改", "bug", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
   <% else %>
-    <%= f.input :category, :label => "职位类型", :collection => [ "开发", "设计", "产品", "其他","其他"], input_html: { class: 'category' } %>
+    <%= f.input :category, :label => "问题类型", :collection => [ "基础", "魔改", "bug", "其他","其他"], input_html: { class: 'category' } %>
   <% end %>
   <!--=== 工作地点 ===-->
-  <% if @job.city? %>
-    <%= f.input :city, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州"], :checked => @job.location, input_html: { class: 'city' } %>
+  <!-- <% if @job.city? %>
+    <%= f.input :city, :label => "您所在地方【解答不了de】", :collection => ["北京", "上海", "深圳", "广州"], :checked => @job.location, input_html: { class: 'city' } %>
   <% else %>
     <%= f.input :city, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州"], input_html: { class: 'city' } %>
-  <% end %>
-  <%= f.input :wage_lower_bound, :label => "薪资下限" %>
-  <%= f.input :wage_upper_bound, :label => "薪资上限" %>
+  <% end %> -->
+  <%= f.input :wage_lower_bound, :label => "赞赏下限" %>
+  <%= f.input :wage_upper_bound, :label => "赞赏上限" %>
   <%= f.input :contact_email %>
-  <%= f.input :company, :label => "招聘公司" %>
+  <%= f.input :company, :label => "求助者" %>
   <%= f.input :image, as: :file %>
   <%= f.input :is_hidden %>
   <%= f.submit "Submit" %>

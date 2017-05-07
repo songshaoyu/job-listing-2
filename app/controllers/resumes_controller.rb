@@ -20,6 +20,6 @@ class ResumesController < ApplicationController
   private
 
   def resume_params
-    params.require(:resume).permit(:content, :attachment)
+    params.require(:resume).permit( :name, :gender, :wechat, :content, :attachment)
   end
 end

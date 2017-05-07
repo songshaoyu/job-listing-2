@@ -1,7 +1,19 @@
-<h3>提交履历到<%= @job.title %></h3>
-<hr>
-<%= simple_form_for [@job, @resume] do |f| %>
-<%= f.input :content %>
-<%= f.input :attachment %>
-<%= f.submit "Submit" %>
-<% end %>
+<div class="col-md-8 col-md-offset-2" style="margin-top: 100px;">
+  <h3><%= @job.title %></h3>
+  <hr>
+  <%= simple_form_for [@job, @resume] do |f| %>
+
+  <%= f.input :name, :label => "姓名" %>
+
+  <%= f.input :gender, as: :radio_buttons, collection: [['男','男'], ['女', '女']], required: "男", :label => "性别" %>
+
+  <%= f.input :wechat, :label => "微信号" %>
+  <%= f.input :content %>
+  
+
+  <%= f.input :attachment, :label => "题外延伸 .PDF格式" %>
+
+  <%= f.submit "提交", class: "btn btn-lg btn-success", data: {disable_with: "Submiting..."} %>
+
+  <% end %>
+</div>

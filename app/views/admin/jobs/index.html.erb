@@ -1,4 +1,4 @@
- <section class="intro-page" style="height: 10px;">
+ <!-- <section class="intro-page" style="height: 10px; margin-top: 100px;">
    <div class="col-md-8 col-md-offset-2" style="padding-top: 2em; margin-left: 300px;">
  <ul class="nav nav-pills">
    <li class="field-li"><%= link_to('#') do %><i class="fa fa-at" aria-hidden="true" style="color: $green;"></i><b style="color: black;">IT·互联网</b> <% end %>
@@ -8,43 +8,32 @@
 
  </ul>
 </div>
- </section>
+ </section> -->
 
 <div class="container-fluid jobs-show-page">
   <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 <div class="pull-right">
-<%= link_to("增加职务", new_admin_job_path, :class => "btn btn-default" ) %>
+<%= link_to("发问", new_admin_job_path, :class => "btn btn-default" ) %>
 </div>
 
 <br><br>
 
 <table class="table table-boldered table-striped custab">
-  <thead>
-    <tr>
-      <td>职缺</td>
-      <td>职务类型</td>
-      <td>收到的履历数量</td>
-      <td>薪资下限</td>
-      <td>薪资上限</td>
-      <td>招聘公司</td>
-      <td>工作地点</td>
-      <td>管理选项</td>
-      <td>刊登时间</td>
-    </tr>
-  </thead>
+
 <% @jobs.each do |job| %>
 <tr>
   <td>
     <%= render_job_status(job) %>
     <%= link_to(job.title, admin_job_path(job)) %>
   </td>
-  <td><span class="<%= render_job_category(job) %>"> <%= job.category %></td>
+  <!-- <td><span class="<%= render_job_category(job) %>"><i class="fa fa-keyboard-o" aria-hidden="true"></i> <%= job.category %></td> -->
 
-  <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
-  <td><%= job.wage_lower_bound %></td>
-  <td><%= job.wage_upper_bound %></td>
-  <td><%= job.company %></td>
-  <td><%= job.city %></td> 
+  <td><i class="fa fa-envelope" aria-hidden="true"></i> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
+  <td><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_lower_bound %></td>
+  <td><i class="fa fa-jpy" aria-hidden="true"></i> <%= job.wage_upper_bound %></td>
+  <td><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+<%= job.company %></td>
+  <td><%= job.city %></td>
   <td>
       <%= link_to edit_admin_job_path(job), class: "btn btn-xs btn-info" do %><i class="fa fa-pencil"></i><% end %>
       <%= link_to admin_job_path(job), :method => :delete, :class => "btn btn-xs  btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash-o"></i><% end %>

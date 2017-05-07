@@ -4,6 +4,7 @@ class Job < ApplicationRecord
   validates :wage_upper_bound, presence: true
   validates :wage_lower_bound, numericality: { greater_than: 0}
   mount_uploader :image, ImageUploader
+  has_many :resumes
 
   def publish!
     self.is_hidden = false
