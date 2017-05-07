@@ -28,14 +28,14 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <% if current_user.admin? %>
+
             <li>
               <%= link_to(" Admin Panel", admin_jobs_path, :class => "	glyphicon glyphicon-user") %></li>
             <% end %>
             <li><%= link_to(" Logout", destroy_user_session_path, :class => "	glyphicon glyphicon-log-out", method: :delete) %></li>
           </ul>
         </li>
-        <% end %>
+      
       </ul>
     </div>
   </div>
